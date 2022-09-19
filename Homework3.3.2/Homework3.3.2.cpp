@@ -11,17 +11,17 @@ public:
     Counter(double num) {
         this->num = num;
     }
-    void plus(Counter* number, int plus_num) {
-        plus_num++;
-        number->num = plus_num;
+    void plus() {
+        num++;
     }
-    void minus(Counter* number, int minus_num) {
-        minus_num--;
-        number->num = minus_num;
+    void minus() {
+        num--;
     }
-    void equal(Counter* number, int equal_num) {
-        number->num = equal_num;
-        std::cout << number->num << std::endl;
+    void equal() {
+        std::cout << get() << std::endl;
+    }
+    double get() {
+        return num;
     }
 };
 
@@ -47,15 +47,13 @@ int main(int argc, char** argv)
         std::cin >> sign;
 
         if (sign == "+") {
-            calc.plus(&calc, new_num);
-            new_num++;
+            calc.plus();
         }
         if (sign == "-") {
-            calc.minus(&calc, new_num);
-            new_num--;
+            calc.minus();
         }
         if (sign == "=") {
-            calc.equal(&calc, new_num);
+            calc.equal();
         }
         if (sign == "x") {
             std::cout << "До свидания!" << std::endl;
